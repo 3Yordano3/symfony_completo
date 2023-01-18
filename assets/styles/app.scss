@@ -8,3 +8,27 @@ $color : blue;
 .btn-primary{
   background-color: $color;
 }
+
+/* Color of the navbar AFTER scroll */
+.nav-colored {
+  background-color: #fff !important;
+  transition: background-color 200ms linear;
+}
+
+/* Color of the navbar AFTER scroll */
+.nav-transparent {
+  background-color:transparent !important;
+  transition: background-color 200ms linear;
+}
+
+.link-actived{
+  background-color: rgb(185, 28, 29);
+  color: white;
+  padding:0px 10px
+}
+
+.link-actived:hover{
+  color: white !important;
+  border-bottom-width: 0px;
+  cursor:default
+}

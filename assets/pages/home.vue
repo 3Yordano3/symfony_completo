@@ -1,17 +1,21 @@
 <template>
 <div>
-  <Banner/>
-  <Form/>
+<!--  <Banner/>-->
+<!--  <Form/>-->
+  <Carousel/>
+  <Parallax/>
 </div>
 </template>
 <script>
-import Form from "../components/Form"
-import Banner from "../components/Banner"
+// import Form from "../components/Form"
+// import Banner from "../components/Banner"
+import Carousel from "../components/Carousel"
+import Parallax from "../components/Parallax"
 export default {
   name: 'home',
   data() {
     return {};
   },
-  components : {Banner,Form}
+  components : {Carousel,Parallax}
 }
 </script>
