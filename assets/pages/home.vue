@@ -19,3 +19,9 @@ export default {
   components : {Carousel,Parallax}
 }
 </script>
+
+<style>
+.nav-transparent a{
+  color: white;
+}
+</style>

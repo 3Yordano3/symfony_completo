@@ -9,16 +9,18 @@ $color : blue;
   background-color: $color;
 }
 
-/* Color of the navbar AFTER scroll */
 .nav-colored {
   background-color: #fff !important;
   transition: background-color 200ms linear;
 }
 
-/* Color of the navbar AFTER scroll */
 .nav-transparent {
   background-color:transparent !important;
   transition: background-color 200ms linear;
+}
+
+.nav-colored a{
+  color: black;
 }
 
 .link-actived{

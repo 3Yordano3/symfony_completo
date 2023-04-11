@@ -24,6 +24,6 @@ export default {
 <style lang="scss">
 .portfolio-container {
   background-color: rgb(249, 249, 249);
-  margin-top: 80px;
+  padding-top: 80px;
 }
 </style>

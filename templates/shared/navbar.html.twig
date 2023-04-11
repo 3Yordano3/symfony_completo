@@ -1,14 +1,18 @@
+{% set route_name = app.request.attributes.get('_route') %}
 <div style="
     z-index: 100;
     position: fixed;
     top: 0px;
     width: 100%;">
-    <header aria-label="Site Header" class="border-b border-gray-100 navbar-site-transparent" id="navbar-site-transparent">
+    {% if route_name == "app_home" %}
+        <header aria-label="Site Header" class="border-b border-gray-100 navbar-site-transparent nav-transparent" id="navbar-site-transparent">
+    {% else %}
+        <header aria-label="Site Header" class="border-b border-gray-100 navbar-site-transparent" id="navbar-site-transparent">
+    {% endif %}
         <div
                 class="mx-auto flex h-16 items-center justify-between"
         >
-            {% set route_name = app.request.attributes.get('_route') %}
-            <a style="padding-left: 20px" href="{{ path('app_home') }}" class="flex">
+            <a style="padding-left: 20px" href="{{ path('app_home') }}" class="flex" id="link-site">
                 Logo
             </a>
 
@@ -22,6 +26,7 @@
                         <a
                                 href="{{ path('app_portfolio') }}"
                                 class="block h-16 border-b-4 border-transparent leading-[4rem] hover:border-current hover:text-red-700 link-actived"
+                                id="link-site"
                         >
                             PortFolio
                         </a>
@@ -29,6 +34,7 @@
                         <a
                                 href="{{ path('app_portfolio') }}"
                                 class="block h-16 border-b-4 border-transparent leading-[4rem] hover:border-current hover:text-red-700"
+                                id="link-site"
                         >
                             PortFolio
                         </a>
@@ -38,6 +44,7 @@
                         <a
                                 href="{{ path('app_about') }}"
                                 class="block h-16 border-b-4 border-transparent leading-[4rem] hover:border-current hover:text-red-700 link-actived"
+                                id="link-site"
                         >
                             Qui suis-je?
                         </a>
@@ -45,6 +52,7 @@
                         <a
                                 href="{{ path('app_about') }}"
                                 class="block h-16 border-b-4 border-transparent leading-[4rem] hover:border-current hover:text-red-700"
+                                id="link-site"
                         >
                             Qui suis-je?
                         </a>
@@ -54,6 +62,7 @@
                         <a
                                 href="{{ path('app_pricing') }}"
                                 class="block h-16 border-b-4 border-transparent leading-[4rem] hover:border-current hover:text-red-700 link-actived"
+                                id="link-site"
                         >
                             Pricing
                         </a>
@@ -61,6 +70,7 @@
                         <a
                                 href="{{ path('app_pricing') }}"
                                 class="block h-16 border-b-4 border-transparent leading-[4rem] hover:border-current hover:text-red-700"
+                                id="link-site"
                         >
                             Pricing
                         </a>
@@ -70,6 +80,7 @@
                         <a
                                 href="{{ path('app_contact') }}"
                                 class="block h-16 border-b-4 border-transparent leading-[4rem] hover:border-current hover:text-red-700 link-actived"
+                                id="link-site"
                         >
                             Contact
                         </a>
@@ -77,6 +88,7 @@
                         <a
                                 href="{{ path('app_contact') }}"
                                 class="block h-16 border-b-4 border-transparent leading-[4rem] hover:border-current hover:text-red-700"
+                                id="link-site"
                         >
                             Contact
                         </a>
@@ -91,6 +103,7 @@
             <a
                     href="/cart"
                     class="block border-b-4 border-transparent p-6 hover:border-red-700"
+                    id="link-site"
             >
               <svg
                       class="h-4 w-4"
@@ -115,6 +128,7 @@
             <a
                     href="/account"
                     class="block border-b-4 border-transparent p-6 hover:border-red-700"
+                    id="link-site"
             >
               <svg
                       class="h-4 w-4"
@@ -139,6 +153,7 @@
             <a
                     href="/search"
                     class="block border-b-4 border-transparent p-6 hover:border-red-700"
+                    id="link-site"
             >
               <svg
                       class="h-4 w-4"
@@ -165,6 +180,22 @@
     </header>
 </div>
 
+{% if route_name == "app_contact" %}
+    <script>
+        const liens = document.querySelectorAll('[id=link-site]');
+        liens.forEach(element => {
+            element.style.color = "white";
+            element.addEventListener("mouseover", function( event ) {
+                element.style.borderColor = "white";
+            })
+            element.addEventListener("mouseout", function( event ) {
+                element.style.borderColor = "transparent";
+            })
+        })
+        console.log(liens);
+    </script>
+{% endif %}
+
 <script>
     const myNav = document.getElementById('navbar-site-transparent');
     if(window.onscroll){
@@ -173,12 +204,10 @@
     window.onscroll = function () {
         if (document.body.scrollTop >= 60 || document.documentElement.scrollTop >= 60 )
         {
-            console.log("bas");
             myNav.classList.add("nav-colored");
             myNav.classList.remove("nav-transparent");
         }
         else {
-            console.log("top");
             myNav.classList.add("nav-transparent");
             myNav.classList.remove("nav-colored");
         }
